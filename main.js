@@ -1,31 +1,41 @@
 
 $(document).ready(function(){
 	$('.thumbnail').click(function() {
-
 		var cover = $('<div id="cover"></div>');
 		$('body').append(cover);
 
-		var pictureUrl = $(this).attr('src');
+		var pictureUrl = $(this).attr('data-image');
 		var fullImg = $("<img/>");
 		var actualWidth;
 		var actualHeight;
 		fullImg
 				.attr('src',pictureUrl)
 				.attr('id','fullPic');
+
+
+
 		var container = $('<div id="container"></div>');
 		var h = Math.round($(window).height() - 40);
 		container.css('height',h+"px");
 		container.css('width','auto');
 		container.css('max-width','60%');
+		container.addClass('loading');
+
+
+		fullImg.load(function() {
+			$('#container').append($(this));
+			$('#container').append('<span id="caption">This is beautiful</span>');
+			$('#container').append('<span id="closeBttn">X</span>');
+			var h = Math.round($('#fullPic').height() + $('#caption').height());
+			$('#container').css('height',h+"px");
+			$('#caption').css('margin-left',$('#fullPic').css('margin-left'));
+			$('#closeBttn').css('margin-right',$('#fullPic').css('margin-right'));
+			$('#container').removeClass('loading');
+		});
+
 		$('#cover').append(container);
-		$('#container').append(fullImg);
-		$('#container').append('<span id="caption">This is beautiful</span>');
-		$('#container').append('<span id="closeBttn">X</span>');
 		$('#cover').fadeIn(800);
-		var h = Math.round($('#fullPic').height() + $('#caption').height());
-		$('#container').css('height',h+"px");
-		$('#caption').css('margin-left',$('#fullPic').css('margin-left'));
-		$('#closeBttn').css('margin-right',$('#fullPic').css('margin-right'));
+
 	});
 
 	$('body').on('click','#closeBttn',function() {
@@ -53,5 +63,6 @@ $(document).ready(function(){
 		$('#caption').css('margin-left',$('#fullPic').css('margin-left'));
 		$('#closeBttn').css('margin-right',$('#fullPic').css('margin-right'));
 	});
+
 
 });
