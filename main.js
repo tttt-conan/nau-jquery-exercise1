@@ -12,16 +12,6 @@ $(document).ready(function(){
 				.attr('src',pictureUrl)
 				.attr('id','fullPic');
 
-
-
-		var container = $('<div id="container"></div>');
-		var h = Math.round($(window).height() - 40);
-		container.css('height',h+"px");
-		container.css('width','auto');
-		container.css('max-width','60%');
-		container.addClass('loading');
-
-
 		fullImg.load(function() {
 			$('#container').append($(this));
 			$('#container').append('<span id="caption">This is beautiful</span>');
@@ -32,6 +22,16 @@ $(document).ready(function(){
 			$('#closeBttn').css('margin-right',$('#fullPic').css('margin-right'));
 			$('#container').removeClass('loading');
 		});
+
+		var container = $('<div id="container"></div>');
+		var h = Math.round($(window).height() - 40);
+		container.css('height',h+"px");
+		container.css('width','auto');
+		container.css('max-width','60%');
+		container.addClass('loading');
+
+
+
 
 		$('#cover').append(container);
 		$('#cover').fadeIn(800);
