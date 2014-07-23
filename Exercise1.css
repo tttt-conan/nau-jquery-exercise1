@@ -80,7 +80,8 @@ p{
 	right:0;
 	bottom:0;
 	left:0;
-	background: url('http://i.stack.imgur.com/FhHRx.gif');
-    background-color: inherit;
-    background-repeat: no-repeat;
+	background: rgba( 0,0,0, 0.5 )
+                url('http://i.stack.imgur.com/FhHRx.gif')
+                50% 50%
+                no-repeat;
 }
