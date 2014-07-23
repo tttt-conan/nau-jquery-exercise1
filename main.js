@@ -21,9 +21,11 @@ $(document).ready(function(){
 		$('#container').append(fullImg);
 		$('#container').append('<span id="caption">This is beautiful</span>');
 		$('#container').append('<span id="closeBttn">X</span>');
-		h = Math.round($('#fullPic').css('height') + $('#caption').css('height'));
-		container.css('height',h+"px");
 		$('#cover').fadeIn(800);
+		var h = Math.round($('#fullPic').height() + $('#caption').height());
+		$('#container').css('height',h+"px");
+		$('#caption').css('margin-left',$('#fullPic').css('margin-left'));
+		$('#closeBttn').css('margin-right',$('#fullPic').css('margin-right'));
 	});
 
 	$('body').on('click','#closeBttn',function() {
@@ -32,7 +34,7 @@ $(document).ready(function(){
 		$('#cover').fadeOut();
 	});
 
-	$('body').on('click','#container',function(e) {
+	$('body').on('click','#cover',function(e) {
 		if(e.target.id !== 'fullPic')
 		{
 			$('#fullPic').fadeOut(800);
@@ -42,8 +44,14 @@ $(document).ready(function(){
 	});
 
 	$(window).on('resize',function(){
-		var h = $(this).height() - 30;
+
+		var h = Math.round($(window).height() - 40);
 		$('#container').css('height',h+"px");
+		var h = Math.round($('#fullPic').height() + $('#caption').height());
+		$('#container').css('height',h+"px");
+
+		$('#caption').css('margin-left',$('#fullPic').css('margin-left'));
+		$('#closeBttn').css('margin-right',$('#fullPic').css('margin-right'));
 	});
 
 });
