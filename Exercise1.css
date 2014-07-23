@@ -17,28 +17,61 @@ h1{
 }
 
 p{
-	text-align: center;
+	text-align: left;
 }
 
 #cover{
 	display: none;
-	position:absolute;
+	position: fixed;
 	top:0;
 	right:0;
 	bottom:0;
 	left:0;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.8);
+}
+
+#container{
+	color: white;
+	display: block;
+	position: absolute;
+	margin: auto;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
 }
 
 #cover img{
-	position: absolute;
 	top:0;
 	right:0;
 	bottom:0;
 	left:0;
+	max-height: 90%;
+	max-width: 100%;
 	display: block;
 	margin: auto;
-	height: 60%;
-	width: 60%;
-	opacity: 1.0;
+}
+
+
+#container span:first-child{
+	float: left;
+	clear: left;
+}
+
+
+#container span:last-child{
+	float: right;
+}
+
+#closeBttn{
+	color: white;
+	font-family: Arial;
+	font-size: 20px;
+	float: right;
+	right: 20%;
+	bottom: 10%;
+}
+
+#closeBttn:hover{
+	cursor: pointer;
 }
