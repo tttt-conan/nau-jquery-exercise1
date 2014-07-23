@@ -12,6 +12,7 @@ h1{
 
 .thumbnail:hover{
 	cursor: pointer;
+	box-shadow: 0px 0px 50px black;
 }
 
 p{
